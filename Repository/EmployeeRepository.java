@@ -1,6 +1,7 @@
 package com.imooc.Repository;
 
 import com.imooc.domain.Employee;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
@@ -66,6 +67,10 @@ public interface EmployeeRepository {//extends Repository<Employee, Integer> {
      */
     @Query(nativeQuery = true, value = "select count(1) from employee")
     Long getCount();
+
+    @Modifying
+    @Query("update Employee emp set emp.age = :age where emp.id = :id")
+    void update(@Param("id") Integer id, @Param("age") Integer age);
 
 
 
