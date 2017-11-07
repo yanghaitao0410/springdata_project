@@ -1,14 +1,13 @@
 package com.imooc.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 雇员:  先开发实体类===>自动生成数据表
+ * @Table : 指定该实体类对应的表名，若不指定默认为实体类大写
  */
 @Entity
+@Table(name = "emp_crud")
 public class Employee {
 
     private Integer id;
